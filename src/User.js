@@ -14,18 +14,20 @@ present = false;
  }
  
  generateHTML() {
-    const html = `<div class="user" data-present="false">
-    <img src="${this.User.picture}">
-    <div class="user--info">
-            <h1>${this.User.title} ${this.User.firstName} ${this.User.lastName}</h1>
-            <p>${this.User.age} years old</p>
-            <p>${this.User.town}, ${this.User.country}</p>
-    </div>
-    <a href="mailto:${this.User.email}">
-            <span class="mail">✉️</span>
-    </a>
-</div>`;
-board.insertAdjacentHTML("afterbegin", html);
+ const containerElement = document.createElement("div");
+ containerElement.classList.add("user")
+ const childHtml = `<div class="user" data-present="false">
+ <img src="${this.User.picture}">
+ <div class="user--info">
+ <h1>${this.User.title} ${this.User.firstName} ${this.User.lastName}</h1>
+ <p>${this.User.age} years old</p>
+ <p>${this.User.town}, ${this.User.country}</p>
+ </div>
+ <a href="mailto:${this.User.email}">
+ <span class="mail">✉️</span>
+ </a>
+ </div>`;
+ board.insertAdjacentHTML("afterbegin", childHtml);
  }
 }
 
